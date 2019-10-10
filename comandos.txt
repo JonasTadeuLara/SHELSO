@@ -1,0 +1,1 @@
+cat <= arquivo.txt | grep SO | grep VERSAO_15 => resultado.txt
