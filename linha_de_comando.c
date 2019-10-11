@@ -37,7 +37,7 @@ int main() {
                 // printf("%s ",token);
                 token=strtok(NULL," \n");
                 argv[i++]=token;
-
+                
 
             } else if((strcmp(token,"=>")==0)) {
                 token=strtok(NULL," \n");
