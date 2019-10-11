@@ -4,48 +4,43 @@
 
 #define TOTAL_LINHA 512
 
-//kjhasdjkasdkjhasdkj
-////asdasdasdasdasd
-
-int main()
-{
+int main() {
 
     FILE *arq = fopen("comandos.txt","r");
     char linha[TOTAL_LINHA];
+    char *token;
     fgets(linha,TOTAL_LINHA,arq);
     fclose(arq);
 
+    token=strtok(linha," |=><=\n");
     int x=0;
-
-    for(int i=0; i<strlen(linha);i++ ){
-        if(linha[i]== '|'){
+    while(x==0){
+        
+        if(token != NULL){
+                
+            if((strcmp(token,"|"))==0){
+                printf(" ++++++comando+++++++\n");
+                token=strtok(NULL," \n");
+                    
+            }else if((strcmp(token,"<=")==0)){
+                token=strtok(NULL," \n");
+                printf("%s ",token);
+                token=strtok(NULL," \n");
+            }else if((strcmp(token,"=>")==0)){
+                token=strtok(NULL," \n");
+                printf("%s ",token);
+                token=strtok(NULL," \n");
+            }else{
+                
+                printf("%s ",token);
+                token=strtok(NULL," \n");
+            }
+        }else{
             x++;
+            printf(" ++++++comando+++++++\n");
         }
+        
     }
-
-    x=(x*2);
-    x++;
-    //asdakbasdnbasdyasd basdibasdpklas askdjglkasdgljkadgjk fasdfsdfsdfsdf
-    //char *comandos = (char*)malloc(sizeof(x)*sizeof(linha)*sizeof(char));
-    char *strings[12];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return 0;
 }
